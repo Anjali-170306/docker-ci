@@ -18,20 +18,20 @@ pipeline {
 
         stage('2. Application Build & Test') {
             steps {
-                bat 'python -m py_compile app.py'
+                bat '"%PYTHON_PATH%" -m py_compile app.py'
             }
         }
 
         stage('3. Build & Tag Docker Image') {
             steps {
-                bat "docker build -t ${REGISTRY}/${IMAGE_NAME}:${BUILD_NUMBER} -t ${REGISTRY}/${IMAGE_NAME}:latest ."
+                bat " "%DOCKER_PATH%" build -t ${REGISTRY}/${IMAGE_NAME}:${BUILD_NUMBER} -t ${REGISTRY}/${IMAGE_NAME}:latest ."
             }
         }
 
         stage('4. Push Image to Registry') {
             steps {
-                bat "docker push ${REGISTRY}/${IMAGE_NAME}:${BUILD_NUMBER}"
-                bat "docker push ${REGISTRY}/${IMAGE_NAME}:latest"
+                bat ""%DOCKER_PATH%" push ${REGISTRY}/${IMAGE_NAME}:${BUILD_NUMBER}"
+                bat ""%DOCKER_PATH%" push ${REGISTRY}/${IMAGE_NAME}:latest"
             }
         }
     }
