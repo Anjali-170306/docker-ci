@@ -4,6 +4,9 @@ pipeline {
     environment {
         REGISTRY = "localhost:5000"
         IMAGE_NAME = "anil-demo-app"
+        PYTHON_PATH = "C:/Users/STUDENT/AppData/Local/Programs/Python/Python313/python.exe"
+        DOCKER_PATH = "C:/Program Files/Docker/Docker/resources/bin/docker.exe"
+        
     }
 
     stages {
