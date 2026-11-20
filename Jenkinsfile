@@ -1,8 +1,4 @@
-kuick.io
-You and 1 other viewer
 
-
-Start sharing
 pipeline {
     agent any
 
